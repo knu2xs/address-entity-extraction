@@ -63,6 +63,9 @@ GOTO %1
     :: Add more fun stuff from environment file
     CALL conda env update -p %CONDA_DIR% -f environment.yml
 
+    :: Download the english model
+    CALL conda run -p %CONDA_DIR% python -m spacy download en_core_web_lg
+
     :: Install the local package in development (experimental) mode
     CALL conda run -p %CONDA_DIR% python -m pip install -e .
 
